@@ -1,0 +1,14 @@
+#*/1 * * * * /app/batch/RDemon/start.sh => 테스트 1분마다 실행
+0 0 * * * /app/batch/RDemon/start.sh    => 매일 자정 0시에 실행 설정
+
+# 매일 4분에 동기화
+#4 0 * * *  rdate -s bora.time.net ;
+
+#매 5분 마다 동기화
+#*/2 * * * *  rsync -avz /home/rntime/PowerMES/reports  /home/rntime/PowerPOP/pop/resources
+
+# node-red 다운시 실행할 수있도록 5분마다 체크
+#*/5 * * * * /home/rntime/nodeReStart.sh >> /var/log/nodeRed.log
+
+#매 10분마다 batch job 죽어 있는지 체크 죽었으면 다시 실행 한다.
+*/10 * * * * /app/batch/RDemon/rsubCheck.sh

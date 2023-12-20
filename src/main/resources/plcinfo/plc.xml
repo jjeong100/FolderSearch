@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <class0>org.rnt.batch.job.BogieJob</class0>
+    <reader0>
+        <type>tcp</type>
+       <plcs>
+           <plc>
+                <code>BOGIE</code>
+                <type>R1</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <msg>RDS MR1000 39</msg>
+            </plc>
+            
+             <plc>
+                <code>BOGIE</code>
+                <type>R2</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <msg>RDS MR2000 39</msg>
+            </plc>
+            
+             <plc>
+                <code>BOGIE</code>
+                <type>R3</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <msg>RDS MR3000 39</msg>
+            </plc>
+            
+             <plc>
+                <code>BOGIE</code>
+                <type>R4</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <msg>RDS MR4000 39</msg>
+            </plc>
+            
+             <plc>
+                <code>BOGIE</code>
+                <type>R5</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <msg>RDS MR5000 39</msg>
+            </plc>
+            
+             <plc>
+                <code>BOGIE</code>
+                <type>R6</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <msg>RDS MR6000 39</msg>
+            </plc>
+        </plcs>
+        <interval>600</interval>
+    </reader0>
+    
+    <class1>org.rnt.batch.job.ChromateJob</class1>
+    <reader1>
+        <type>tcp</type>
+       <plcs>
+            <plc>
+                <code>CHROMATE</code>
+                <type>R</type> 
+                <ip>192.168.254.102</ip> 
+                <port>8501</port>
+                <!-- 0.4초씩 -->
+                <msg>RDS DM1000.S 10,RDS DM860.S 10</msg>
+            </plc>
+        </plcs>
+        <interval>600</interval>
+    </reader1>
+    
+    <class2>org.rnt.batch.job.EffluentJob</class2>
+    <reader2>
+        <type>tcp</type>
+       <plcs>
+            <plc>
+                <code>EFFLUENT</code>
+                <type>R</type> 
+                <ip>192.168.254.101</ip> 
+                <port>8501</port>
+                <!-- 0.4초씩 -->
+                <msg>RD DM290.S,RD DM310.S,RD DM320.S,RD DM330.S,RD DM340.S,RD DM350.S</msg>
+            </plc>
+        </plcs>
+        <interval>600</interval>
+    </reader2>
+    
+</config>

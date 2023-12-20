@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+ 
+<log4j:configuration
+    xmlns:log4j="http://jakarta.apache.org/log4j/">
+     
+    <!-- 콘솔 로그 -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+         <layout class="org.apache.log4j.PatternLayout">
+<!--               <param name="ConversionPattern" value="%d %p [%c{5}] %m [%X{userId}]%n" /> -->
+              <param name="ConversionPattern" value="%d %p [%c{5}] %m %n" />
+         </layout>  
+    </appender>
+     
+    <!-- full url이며 슬래쉬를 사용할것  -->
+    <appender name="BOGIEFile" class="org.apache.log4j.DailyRollingFileAppender">
+<!--         <param name="File" value="D:/workspace/svn/batch/삼보산업/Rnt-SamBoSanUp-Batch-1.0/log/plc_01.log"/> -->
+        <param name="File" value="/app/batch/RDemon/log/plc_BOGIE.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+<!--             <param name="ConversionPattern" value="%d %p [%C{10}] %m [%X{userId}]%n" /> -->
+            <param name="ConversionPattern" value="%d %p [%C{10}] %m %n" />
+        </layout>  
+    </appender>
+    
+    <appender name="CHROMATEFile" class="org.apache.log4j.DailyRollingFileAppender">
+<!--         <param name="File" value="D:/workspace/svn/batch/삼보산업/Rnt-SamBoSanUp-Batch-1.0/log/plc_02.log"/> -->
+        <param name="File" value="/app/batch/RDemon/log/plc_CHROMATE.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+<!--             <param name="ConversionPattern" value="%d %p [%C{10}] %m [%X{userId}]%n" /> -->
+            <param name="ConversionPattern" value="%d %p [%C{10}] %m %n" />
+        </layout>  
+    </appender>
+    
+    <appender name="EFFLUENTFile" class="org.apache.log4j.DailyRollingFileAppender">
+<!--         <param name="File" value="D:/workspace/svn/batch/삼보산업/Rnt-SamBoSanUp-Batch-1.0/log/plc_03.log"/> -->
+        <param name="File" value="/app/batch/RDemon/log/plc_EFFLUENT.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+<!--             <param name="ConversionPattern" value="%d %p [%C{10}] %m [%X{userId}]%n" /> -->
+            <param name="ConversionPattern" value="%d %p [%C{10}] %m %n" />
+        </layout>  
+    </appender>
+
+    <logger name="BOGIEFile">
+        <level value="DEBUG" />
+        <appender-ref ref="BOGIEFile" />
+    </logger>
+    
+    <logger name="CHROMATEFile">
+        <level value="DEBUG" />
+        <appender-ref ref="CHROMATEFile" />
+    </logger>
+    
+     <logger name="EFFLUENTFile">
+        <level value="DEBUG" />
+        <appender-ref ref="EFFLUENTFile" />
+    </logger>
+
+    <!-- 기본 출력 설정 -->
+    <root>
+        <level value="DEBUG" />
+<!--         <priority value="warn" /> -->
+        <appender-ref ref="console" />
+    </root>
+     
+</log4j:configuration>
